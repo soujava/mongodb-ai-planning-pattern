@@ -8,10 +8,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 public class AttractionTools {
 
+    private static final Logger LOGGER = Logger.getLogger(AttractionTools.class.getName());
     @Inject
     private AttractionService service;
 
