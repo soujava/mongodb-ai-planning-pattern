@@ -27,6 +27,25 @@ public interface TravelService {
             - Keep responses short and direct.
             - When creating itineraries, select destinations from the available data and generate the itinerary immediately.
             - If information is unavailable, say so briefly.
+            Return only valid HTML.
+            
+            Example:
+            
+            <h2>Historical Tour in Portugal</h2>
+            
+            <h3>Cities</h3>
+            <ul>
+              <li>Lisbon</li>
+              <li>Porto</li>
+            </ul>
+            
+            <h3>Attractions</h3>
+            <ul>
+              <li>Belém Tower</li>
+              <li>Jerónimos Monastery</li>
+            </ul>
+            
+            <p>Perfect for travelers interested in Portuguese history.</p>
             """)
     String chat(String userMessage);
 }
