@@ -24,7 +24,7 @@ public class City {
     City() {
     }
 
-    City(UUID id, String name, String country, String description) {
+    public City(UUID id, String name, String country, String description) {
         this.id = id;
         this.name = name;
         this.country = country;
