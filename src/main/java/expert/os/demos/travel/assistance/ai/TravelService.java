@@ -4,9 +4,15 @@ import dev.langchain4j.cdi.spi.RegisterAIService;
 import dev.langchain4j.service.SystemMessage;
 import jakarta.enterprise.context.ApplicationScoped;
 
-@RegisterAIService
+@RegisterAIService(
+        tools = {
+                CityTools.class,
+                AttractionTools.class
+        }
+)
 @ApplicationScoped
 public interface TravelService {
+
     @SystemMessage("""
             You are a travel assistant powered by a travel database.
             
