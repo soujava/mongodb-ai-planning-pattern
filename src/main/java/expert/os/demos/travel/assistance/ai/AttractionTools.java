@@ -22,7 +22,16 @@ public class AttractionTools {
             Use this tool when you need to discover places to visit in a destination.
             """)
     public List<Attraction> attractionsByCity(String city) {
-        return service.findByCity(city);
+
+        LOGGER.info(() -> "[TOOL] attractionsByCity(city=%s)"
+                .formatted(city));
+
+        List<Attraction> attractions = service.findByCity(city);
+
+        LOGGER.info(() -> "[TOOL] attractionsByCity returned %d attraction(s)"
+                .formatted(attractions.size()));
+
+        return attractions;
     }
 
     @Tool("""
@@ -33,7 +42,17 @@ public class AttractionTools {
     public List<Attraction> attractionsByType(
             String city,
             AttractionType type) {
-        return service.findByType(city, type);
+
+        LOGGER.info(() -> "[TOOL] attractionsByType(city=%s, type=%s)"
+                .formatted(city, type));
+
+        List<Attraction> attractions =
+                service.findByType(city, type);
+
+        LOGGER.info(() -> "[TOOL] attractionsByType returned %d attraction(s)"
+                .formatted(attractions.size()));
+
+        return attractions;
     }
 
     @Tool("""
@@ -41,6 +60,14 @@ public class AttractionTools {
             Use this tool when you need to discover which attraction types can be used to build an itinerary.
             """)
     public AttractionType[] attractionTypes() {
-        return AttractionType.values();
+
+        LOGGER.info("[TOOL] attractionTypes()");
+
+        AttractionType[] values = AttractionType.values();
+
+        LOGGER.info(() -> "[TOOL] attractionTypes returned %d type(s)"
+                .formatted(values.length));
+
+        return values;
     }
 }
