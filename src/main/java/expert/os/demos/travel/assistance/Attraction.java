@@ -22,7 +22,10 @@ public class Attraction {
     @Column
     private String description;
 
-    public Attraction(UUID id, CityReference city, String name, AttractionType type, String description) {
+    Attraction() {
+    }
+
+     Attraction(UUID id, CityReference city, String name, AttractionType type, String description) {
         this.id = id;
         this.city = city;
         this.name = name;
