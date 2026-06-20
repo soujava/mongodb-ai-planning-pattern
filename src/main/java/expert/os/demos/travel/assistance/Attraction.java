@@ -1,10 +1,12 @@
 package expert.os.demos.travel.assistance;
 
 import jakarta.nosql.Column;
+import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 
 import java.util.UUID;
 
+@Entity
 public class Attraction {
 
     @Id
