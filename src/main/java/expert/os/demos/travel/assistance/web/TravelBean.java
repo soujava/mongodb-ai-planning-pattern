@@ -26,6 +26,7 @@ public class TravelBean implements Serializable {
 
     @PostConstruct
     public void init() {
+        SSLBypass.disableSslVerification();
         dataLoader.load();
     }
 
