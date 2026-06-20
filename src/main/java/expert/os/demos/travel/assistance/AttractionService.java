@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.List;
+import java.util.UUID;
 
 @ApplicationScoped
 public class AttractionService {
@@ -16,8 +17,8 @@ public class AttractionService {
         this.attractionRepository = attractionRepository;
     }
 
-    public List<Attraction> findByCity(String city) {
-        return attractionRepository.findByCity(city);
+    public List<Attraction> findByCity(String name) {
+        return attractionRepository.findByCityName(name);
     }
 
     public Attraction save(Attraction attraction) {

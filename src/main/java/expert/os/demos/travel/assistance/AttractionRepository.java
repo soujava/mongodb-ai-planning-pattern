@@ -11,9 +11,9 @@ import java.util.UUID;
 @Repository
 public interface AttractionRepository extends BasicRepository<Attraction, UUID> {
 
-    @Query("WHERE city.id = :city")
-    List<Attraction> findByCityName(@Param("city") UUID city);
+    @Query("WHERE city.name = :name")
+    List<Attraction> findByCityName(@Param("name") String name);
 
-    @Query("WHERE city.id = :city AND type = :type")
-    List<Attraction> findByCityNameAndType(@Param("city") String city, @Param("type") AttractionType type);
+    @Query("WHERE city.name = :name AND type = :type")
+    List<Attraction> findByCityNameAndType(@Param("name") String city, @Param("type") AttractionType type);
 }
