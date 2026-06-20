@@ -17,6 +17,10 @@ public class AttractionService {
         this.attractionRepository = attractionRepository;
     }
 
+        AttractionService() {
+            this.attractionRepository = null;
+        }
+
     public List<Attraction> findByCity(String name) {
         return attractionRepository.findByCityName(name);
     }
