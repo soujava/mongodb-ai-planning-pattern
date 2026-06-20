@@ -1,0 +1,2 @@
+# mongodb-ai-planning-pattern
+A Java example demonstrating the Planning Pattern with AI, MongoDB, and tool calling through a travel itinerary assistant.
