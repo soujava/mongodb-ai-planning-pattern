@@ -1,6 +1,8 @@
-package expert.os.demos.travel.assistance;
+package expert.os.demos.travel.assistance.ai;
 
 import dev.langchain4j.agent.tool.Tool;
+import expert.os.demos.travel.assistance.City;
+import expert.os.demos.travel.assistance.CityService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
