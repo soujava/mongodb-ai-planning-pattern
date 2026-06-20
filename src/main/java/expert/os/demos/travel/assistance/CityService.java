@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.List;
+import java.util.UUID;
 
 @ApplicationScoped
 public class CityService {
@@ -22,5 +23,10 @@ public class CityService {
 
     public List<City> findAll() {
         return cityRepository.findAll().toList();
+    }
+
+    public City save(City city) {
+        this.cityRepository.save(city);
+        return city;
     }
 }
