@@ -27,7 +27,7 @@ public class Attraction {
     Attraction() {
     }
 
-     Attraction(UUID id, CityReference city, String name, AttractionType type, String description) {
+     public Attraction(UUID id, CityReference city, String name, AttractionType type, String description) {
         this.id = id;
         this.city = city;
         this.name = name;
