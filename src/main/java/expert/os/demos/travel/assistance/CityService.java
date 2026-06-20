@@ -4,7 +4,6 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.List;
-import java.util.UUID;
 
 @ApplicationScoped
 public class CityService {
@@ -15,6 +14,10 @@ public class CityService {
     @Inject
     public CityService(CityRepository cityRepository) {
         this.cityRepository = cityRepository;
+    }
+
+     CityService() {
+        this.cityRepository = null;
     }
 
     public List<City> findByCountry(String country) {
