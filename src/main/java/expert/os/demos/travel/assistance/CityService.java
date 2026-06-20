@@ -19,4 +19,8 @@ public class CityService {
     public List<City> findByCountry(String country) {
         return cityRepository.findByCountry(country);
     }
+
+    public List<City> findAll() {
+        return cityRepository.findAll().toList();
+    }
 }
