@@ -24,4 +24,8 @@ public class AttractionService {
     public Attraction save(Attraction attraction) {
         return attractionRepository.save(attraction);
     }
+
+    public List<Attraction> findByType(String city, AttractionType type) {
+        return attractionRepository.findByCityNameAndType(city, type);
+    }
 }
