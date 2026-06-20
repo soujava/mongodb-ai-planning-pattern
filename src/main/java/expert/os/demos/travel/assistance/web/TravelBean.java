@@ -48,4 +48,21 @@ public class TravelBean implements Serializable {
     public String getAnswer() {
         return answer;
     }
+
+    public void availableCities() {
+        this.userMessage = "Show me available cities to travel";
+    }
+
+    public void historicalTour() {
+        this.userMessage = "Create a historical itinerary in Portugal";
+    }
+
+    public void museumWeekend() {
+        this.userMessage = "Create a museum-focused trip in Europe";
+    }
+
+    public void foodAndCulture() {
+        this.userMessage = "Create a food and culture itinerary";
+    }
+
 }
