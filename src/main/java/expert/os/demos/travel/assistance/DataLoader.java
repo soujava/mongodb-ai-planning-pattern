@@ -6,10 +6,12 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
 import java.util.UUID;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 public class DataLoader {
 
+    private static final Logger LOGGER = Logger.getLogger(DataLoader.class.getName());
     @Inject
     private CityService cityService;
 
@@ -19,7 +21,10 @@ public class DataLoader {
     @PostConstruct
     public void load() {
 
+        LOGGER.info("Loading sample travel data");
+
         if (!cityService.findAll().isEmpty()) {
+            LOGGER.info("Sample travel data already loaded");
             return;
         }
 
@@ -52,6 +57,8 @@ public class DataLoader {
         ));
 
         loadAttractions(lisbon, porto, paris, rome);
+        LOGGER.info("Sample travel data loaded successfully");
+
     }
 
     private void loadAttractions(
