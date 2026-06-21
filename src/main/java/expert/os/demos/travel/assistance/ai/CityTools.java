@@ -24,12 +24,12 @@ public class CityTools {
             """)
     public List<City> citiesByCountry(String country) {
 
-        LOGGER.info(() -> "TOOL citiesByCountry country=%s"
+        LOGGER.info(() -> "[TOOL] citiesByCountry country=%s"
                 .formatted(country));
 
         List<City> cities = service.findByCountry(country);
 
-        LOGGER.info(() -> "TOOL citiesByCountry resultCount=%d cities=%s"
+        LOGGER.info(() -> "[TOOL] citiesByCountry resultCount=%d cities=%s"
                 .formatted(
                         cities.size(),
                         cities.stream()
@@ -46,11 +46,8 @@ public class CityTools {
             """)
     public List<City> cities() {
 
-        LOGGER.info("TOOL cities");
-
         List<City> cities = service.findAll();
-
-        LOGGER.info(() -> "TOOL cities resultCount=%d cities=%s"
+        LOGGER.info(() -> "[TOOL] cities resultCount=%d cities=%s"
                 .formatted(
                         cities.size(),
                         cities.stream()
