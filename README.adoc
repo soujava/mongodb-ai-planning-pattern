@@ -130,3 +130,55 @@ sequenceDiagram
     UI-->>User: Render recommendation
 
 ----
+
+== Technologies
+
+Java
+Jakarta EE
+Jakarta Faces (JSF)
+PrimeFaces
+LangChain4j
+Jakarta Data
+Jakarta NoSQL
+MongoDB
+Maven
+Embedded GlassFish
+
+== Running the Application
+
+Build the application:
+
+[source,bash]
+----
+mvn clean install
+----
+
+Run the application:
+
+[source,bash]
+----
+mvn embedded-glassfish
+----
+Open the application:
+
+[source,text]
+----
+http://localhost:8080
+----
+
+== Example Prompts
+
+Show me available cities to travel
+Show me attractions in Lisbon
+Create a historical itinerary in Portugal
+Create a museum-focused trip in Europe
+Create a food and culture itinerary
+
+== What You Will Learn
+
+How to implement the Planning Pattern
+How AI agents interact with enterprise applications through tools
+How to integrate LangChain4j with Jakarta EE
+How to expose application capabilities through tool calling
+How to use MongoDB with Jakarta Data and Jakarta NoSQL
+How to combine deterministic software with AI-driven workflows
