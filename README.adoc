@@ -1,1 +1,66 @@
 = mongodb-ai-planning-pattern
+
+A Java example demonstrating the Planning Pattern with AI, MongoDB, Jakarta EE, and tool calling through a travel itinerary assistant.
+
+The application showcases how Large Language Models (LLMs) can interact with enterprise systems using tools rather than relying exclusively on model knowledge. Instead of generating answers from training data alone, the AI plans a sequence of actions, invokes tools to retrieve information from MongoDB, and then produces recommendations based on real data.
+
+The sample uses a travel assistant domain where users can explore cities, discover attractions, and generate travel itineraries. The AI agent interacts with the application through tool calling, demonstrating how deterministic software and AI capabilities can work together.
+
+== Architecture
+
+The application combines a traditional Jakarta EE architecture with AI planning capabilities. The user interacts through a JSF and PrimeFaces interface, while LangChain4j orchestrates the AI workflow. Rather than directly accessing MongoDB, the model uses tools that expose application capabilities. These tools delegate to services and repositories, ensuring the AI remains isolated from implementation details and only operates through well-defined actions.
+
+[source,mermaid]
+----
+graph LR
+subgraph UI["User Interface"]
+JSF["JSF + PrimeFaces"]
+end
+
+subgraph AI["AI Layer"]
+Agent["TravelService"]
+Planner["Planning Pattern"]
+end
+
+subgraph Tools["Tool Layer"]
+CityTools["CityTools"]
+AttractionTools["AttractionTools"]
+end
+
+subgraph Services["Application Layer"]
+CityService["CityService"]
+AttractionService["AttractionService"]
+end
+
+subgraph Data["Data Layer"]
+CityRepository["CityRepository"]
+AttractionRepository["AttractionRepository"]
+MongoDB[("MongoDB")]
+end
+
+JSF -->|"User Prompt"| Agent
+Agent --> Planner
+
+Planner -->|"Uses"| CityTools
+Planner -->|"Uses"| AttractionTools
+
+CityTools --> CityService
+AttractionTools --> AttractionService
+
+CityService --> CityRepository
+AttractionService --> AttractionRepository
+
+CityRepository --> MongoDB
+AttractionRepository --> MongoDB
+
+style JSF fill:#F8F7F7,stroke:#1D5183,stroke-width:2px,color:#1D5183
+style Agent fill:#1D5183,stroke:#019DDC,stroke-width:2px,color:#F8F7F7
+style Planner fill:#F8F7F7,stroke:#019DDC,stroke-width:2px,color:#1D5183
+style CityTools fill:#F8F7F7,stroke:#1D5183,stroke-width:2px,color:#1D5183
+style AttractionTools fill:#F8F7F7,stroke:#1D5183,stroke-width:2px,color:#1D5183
+style CityService fill:#F8F7F7,stroke:#019DDC,stroke-width:2px,color:#1D5183
+style AttractionService fill:#F8F7F7,stroke:#019DDC,stroke-width:2px,color:#1D5183
+style CityRepository fill:#F8F7F7,stroke:#019DDC,stroke-width:2px,color:#1D5183
+style AttractionRepository fill:#F8F7F7,stroke:#019DDC,stroke-width:2px,color:#1D5183
+style MongoDB fill:#1D5183,stroke:#019DDC,stroke-width:2px,color:#F8F7F7
+----
