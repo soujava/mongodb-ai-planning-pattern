@@ -64,3 +64,69 @@ style CityRepository fill:#F8F7F7,stroke:#019DDC,stroke-width:2px,color:#1D5183
 style AttractionRepository fill:#F8F7F7,stroke:#019DDC,stroke-width:2px,color:#1D5183
 style MongoDB fill:#1D5183,stroke:#019DDC,stroke-width:2px,color:#F8F7F7
 ----
+
+== Planning Pattern
+
+Traditional software typically follows a static execution flow where developers explicitly define each step through method calls, conditions, and workflows. AI systems introduce a different paradigm. Instead of following a predetermined path, the model evaluates a goal and dynamically determines which actions should be executed.
+
+The Planning Pattern enables the model to decompose a request into smaller tasks, select the appropriate tools, retrieve information, and compose a final response. This allows enterprise applications to combine deterministic business logic with the flexibility of AI-driven decision-making.
+
+For example, when a user asks:
+
+[source,mermaid]
+----
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#F8F7F7",
+    "primaryTextColor": "#1D5183",
+    "primaryBorderColor": "#1D5183",
+    "lineColor": "#019DDC",
+    "secondaryColor": "#F8F7F7",
+    "secondaryBorderColor": "#019DDC",
+    "tertiaryColor": "#1D5183",
+    "tertiaryTextColor": "#F8F7F7"
+  }
+}}%%
+
+sequenceDiagram
+
+    actor User
+
+    participant UI as JSF + PrimeFaces
+    participant Agent as AI Travel Agent<br/>(TravelService)
+    participant CityTools as CityTools
+    participant AttractionTools as AttractionTools
+    participant MongoDB as MongoDB
+
+    User->>UI: Create a historical itinerary in Portugal
+
+    UI->>Agent: chat(userMessage)
+
+    Note over Agent: Analyze goal and create a plan
+
+    Agent->>CityTools: citiesByCountry("Portugal")
+
+    CityTools->>MongoDB: Find cities
+    MongoDB-->>CityTools: Lisbon, Porto
+    CityTools-->>Agent: Available cities
+
+    Agent->>AttractionTools: attractionsByType("Lisbon", HISTORICAL)
+
+    AttractionTools->>MongoDB: Find attractions
+    MongoDB-->>AttractionTools: Historical attractions
+    AttractionTools-->>Agent: Lisbon attractions
+
+    Agent->>AttractionTools: attractionsByType("Porto", HISTORICAL)
+
+    AttractionTools->>MongoDB: Find attractions
+    MongoDB-->>AttractionTools: Historical attractions
+    AttractionTools-->>Agent: Porto attractions
+
+    Note over Agent: Build itinerary from tool results
+
+    Agent-->>UI: Travel recommendation
+
+    UI-->>User: Render recommendation
+
+----
