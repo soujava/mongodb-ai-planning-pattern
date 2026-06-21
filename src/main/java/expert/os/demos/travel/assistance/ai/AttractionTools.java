@@ -23,13 +23,11 @@ public class AttractionTools {
             """)
     public List<Attraction> attractionsByCity(String city) {
 
-        LOGGER.info(() -> "[TOOL] attractionsByCity(city=%s)"
-                .formatted(city));
+        LOGGER.info(() -> "[TOOL] attractionsByCity(city=%s)".formatted(city));
 
         List<Attraction> attractions = service.findByCity(city);
 
-        LOGGER.info(() -> "[TOOL] attractionsByCity returned %d attraction(s)"
-                .formatted(attractions.size()));
+        LOGGER.info(() -> "[TOOL] attractionsByCity returned %d attraction(s)".formatted(attractions.size()));
 
         return attractions;
     }
@@ -43,14 +41,12 @@ public class AttractionTools {
             String city,
             AttractionType type) {
 
-        LOGGER.info(() -> "[TOOL] attractionsByType(city=%s, type=%s)"
-                .formatted(city, type));
+        LOGGER.info(() -> "[TOOL] attractionsByType(city=%s, type=%s)".formatted(city, type));
 
         List<Attraction> attractions =
                 service.findByType(city, type);
 
-        LOGGER.info(() -> "[TOOL] attractionsByType returned %d attraction(s)"
-                .formatted(attractions.size()));
+        LOGGER.info(() -> "[TOOL] attractionsByType returned %d attraction(s)".formatted(attractions.size()));
 
         return attractions;
     }
@@ -65,8 +61,7 @@ public class AttractionTools {
 
         AttractionType[] values = AttractionType.values();
 
-        LOGGER.info(() -> "[TOOL] attractionTypes returned %d type(s)"
-                .formatted(values.length));
+        LOGGER.info(() -> "[TOOL] attractionTypes returned %d type(s)".formatted(values.length));
 
         return values;
     }
