@@ -24,21 +24,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.langchain4j.cdi</groupId>
-            <artifactId>langchain4j-cdi-portable-ext</artifactId>
-            <version>${langchain4j-cdi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.langchain4j.cdi.mp</groupId>
-            <artifactId>langchain4j-cdi-config</artifactId>
-            <version>${langchain4j-cdi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-open-ai</artifactId>
-            <version>1.16.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.eclipse.jnosql.databases</groupId>
             <artifactId>jnosql-mongodb</artifactId>
             <version>${jnosql.version}</version>
@@ -48,12 +33,6 @@
             <artifactId>jakarta.jakartaee-api</artifactId>
             <version>${jakartaee-api.version}</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>15.0.16</version>
-            <classifier>jakarta</classifier>
         </dependency>
     </dependencies>
 
