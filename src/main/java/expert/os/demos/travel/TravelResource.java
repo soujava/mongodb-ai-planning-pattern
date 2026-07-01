@@ -9,6 +9,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 @Consumes(MediaType.APPLICATION_JSON)
@@ -16,11 +17,14 @@ import java.util.List;
 @Path("/travels")
 public class TravelResource {
 
+    private static final Logger LOGGER = Logger.getLogger(TravelResource.class.getName());
+
     @Inject
     private TravelService travelService;
 
     @QUERY
     public List<Travel> search(TravelFilterRequest filter) {
+        LOGGER.info("Searching travels with filter: " + filter);
         return travelService.search(filter);
     }
 
