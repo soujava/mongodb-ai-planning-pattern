@@ -1,9 +1,13 @@
 package expert.os.demos.travel;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.data.restrict.Restrict;
+import jakarta.data.restrict.Restriction;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
@@ -35,5 +39,15 @@ public class TravelService {
         } else {
             LOGGER.info("[TRAVEL SERVICE] Travel data already loaded.");
         }
+    }
+
+    public List<Travel> search(TravelRequest filter) {
+        LOGGER.info("[TRAVEL SERVICE] Searching for travels with filter: " + filter);
+        List<Restriction<Travel>> restrictions = new ArrayList<>();
+        filter.city().ifPresent(city -> restrictions.add(_Travel.city.equalTo(city)));
+        filter.type().ifPresent(type -> restrictions.add(_Travel.type.equalTo(type)));
+        filter.minPrice().ifPresent(minPrice -> restrictions.add(_Travel.price.greaterThanEqual(minPrice)));
+        filter.maxPrice().ifPresent(maxPrice -> restrictions.add(_Travel.price.lessThanEqual(maxPrice)));
+        return travelRepository.query(Restrict.all(restrictions.toArray(new Restriction[0])));
     }
 }
