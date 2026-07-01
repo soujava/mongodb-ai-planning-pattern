@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 @JsonbVisibility(value = FieldVisibilityStrategy.class)
-public class TravelRequest {
+public class TravelFilterRequest {
 
     private String city;
     private TravelType type;
