@@ -13,5 +13,5 @@ public class Travel {
     private UUID id;
 
     @Column
-    private City city;
+    private String city;
 }
