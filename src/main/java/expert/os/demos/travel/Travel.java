@@ -4,6 +4,7 @@ import jakarta.nosql.Column;
 import jakarta.nosql.Entity;
 import jakarta.nosql.Id;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
@@ -17,4 +18,7 @@ public class Travel {
 
     @Column
     private TravelType type;
+
+    @Column
+    private BigDecimal price;
 }
