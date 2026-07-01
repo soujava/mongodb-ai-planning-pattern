@@ -29,4 +29,14 @@ public class TravelRequest {
     public Optional<BigDecimal> maxPrice() {
         return Optional.ofNullable(maxPrice);
     }
+
+    @Override
+    public String toString() {
+        return "TravelRequest{" +
+                "city='" + city + '\'' +
+                ", type=" + type +
+                ", minPrice=" + minPrice +
+                ", maxPrice=" + maxPrice +
+                '}';
+    }
 }
