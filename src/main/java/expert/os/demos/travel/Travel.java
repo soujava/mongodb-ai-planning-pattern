@@ -14,4 +14,7 @@ public class Travel {
 
     @Column
     private String city;
+
+    @Column
+    private TravelType type;
 }
