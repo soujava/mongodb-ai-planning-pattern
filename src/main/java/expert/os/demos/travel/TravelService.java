@@ -9,7 +9,6 @@ import org.eclipse.jnosql.mapping.Database;
 import org.eclipse.jnosql.mapping.DatabaseType;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
