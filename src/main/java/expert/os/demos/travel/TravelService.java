@@ -9,6 +9,7 @@ import org.eclipse.jnosql.mapping.Database;
 import org.eclipse.jnosql.mapping.DatabaseType;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -45,6 +46,9 @@ public class TravelService {
 
     public List<Travel> search(TravelFilterRequest filter) {
         LOGGER.info("[TRAVEL SERVICE] Searching for travels with filter: " + filter);
+        if(filter == null) {
+            return travelRepository.findAll().toList();
+        }
         List<Restriction<Travel>> restrictions = new ArrayList<>();
         filter.city().ifPresent(city -> restrictions.add(_Travel.city.equalTo(city)));
         filter.type().ifPresent(type -> restrictions.add(_Travel.type.equalTo(type)));
