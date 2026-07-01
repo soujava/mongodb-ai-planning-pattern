@@ -63,7 +63,7 @@
                     <app>target/07-search-http-verb.war</app>
                     <glassfish.version>8.0.3</glassfish.version>
                     <contextRoot>/</contextRoot>
-                    <port>8080</port>
+                    <port>8081</port>
                 </configuration>
             </plugin>
         </plugins>
