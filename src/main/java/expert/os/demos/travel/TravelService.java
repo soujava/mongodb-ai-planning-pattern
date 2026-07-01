@@ -5,6 +5,8 @@ import jakarta.data.restrict.Restrict;
 import jakarta.data.restrict.Restriction;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.eclipse.jnosql.mapping.Database;
+import org.eclipse.jnosql.mapping.DatabaseType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ public class TravelService {
     private final TravelRepository travelRepository;
 
     @Inject
-    public TravelService(TravelRepository travelRepository) {
+    public TravelService(@Database(DatabaseType.DOCUMENT) TravelRepository travelRepository) {
         this.travelRepository = travelRepository;
     }
 
