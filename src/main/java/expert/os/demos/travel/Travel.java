@@ -8,17 +8,6 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-public class Travel {
+public record Travel (@Id UUID id, @Column String city, @Column TravelType type, @Column BigDecimal price) {
 
-    @Id
-    private UUID id;
-
-    @Column
-    private String city;
-
-    @Column
-    private TravelType type;
-
-    @Column
-    private BigDecimal price;
 }
