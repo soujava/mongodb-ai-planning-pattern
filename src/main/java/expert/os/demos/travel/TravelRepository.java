@@ -1,6 +1,7 @@
 package expert.os.demos.travel;
 
 import jakarta.data.repository.BasicRepository;
+import jakarta.data.repository.Find;
 import jakarta.data.repository.Repository;
 import jakarta.data.restrict.Restriction;
 
@@ -10,6 +11,7 @@ import java.util.UUID;
 @Repository
 public interface TravelRepository extends BasicRepository<Travel, UUID> {
 
+    @Find
     List<Travel> query(Restriction<Travel> restriction);
 
     default boolean isEmpty() {
