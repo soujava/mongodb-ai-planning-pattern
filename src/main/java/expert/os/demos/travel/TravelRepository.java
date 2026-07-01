@@ -11,4 +11,10 @@ import java.util.UUID;
 public interface TravelRepository extends BasicRepository<Travel, UUID> {
 
     List<Travel> query(Restriction<Travel> restriction);
+
+    default boolean isEmpty() {
+        return countBy() == 0;
+    }
+
+    long countBy();
 }
