@@ -41,7 +41,7 @@ public class TravelService {
         }
     }
 
-    public List<Travel> search(TravelRequest filter) {
+    public List<Travel> search(TravelFilterRequest filter) {
         LOGGER.info("[TRAVEL SERVICE] Searching for travels with filter: " + filter);
         List<Restriction<Travel>> restrictions = new ArrayList<>();
         filter.city().ifPresent(city -> restrictions.add(_Travel.city.equalTo(city)));
